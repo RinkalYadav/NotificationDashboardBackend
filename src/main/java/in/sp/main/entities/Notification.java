@@ -17,40 +17,58 @@ public class Notification {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
- private int srno;
+	private int srno;
 	@Column
- private String message;
+	private String message;
 	@Column
- private String category;
+	private String category;
 	
-	 @CreationTimestamp
-	 @Column
+	@Column
+	private String type;
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	@CreationTimestamp
+	@Column
 	private LocalDateTime timestamp;
 
-public LocalDateTime getTimestamp() {
+	public LocalDateTime getTimestamp() {
 		return timestamp;
 	}
+
 	public void setTimestamp(LocalDateTime timestamp) {
 		this.timestamp = timestamp;
 	}
-public int getSrno() {
-	return srno;
-}
-public void setSrno(int srno) {
-	this.srno = srno;
-}
-public String getMessage() {
-	return message;
-}
-public void setMessage(String message) {
-	this.message = message;
-}
-public String getCategory() {
-	return category;
-}
-public void setCategory(String category) {
-	this.category = category;
-}
 
- 
+	public int getSrno() {
+		return srno;
+	}
+
+	public void setSrno(int srno) {
+		this.srno = srno;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+
 }

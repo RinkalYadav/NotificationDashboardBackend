@@ -24,4 +24,29 @@ public class NotificationServiceImpl implements NotificationService {
 	public List<Notification> getAllnotifications() {
 		return notificationRepository.findAll();
 	}
+
+	@Override
+	public Notification updateNotificationDetails(int srno, Notification newNotification) {
+		Notification notificationData = notificationRepository.findById(srno).orElse(null);
+		
+		if(notificationData != null){
+			return notificationRepository.save(newNotification);
+		}
+		else {
+			throw new RuntimeException("User not found with srno "+srno);
+		}
+		
+	}
+
+	@Override
+	public void deleteNotification(int srno) {
+		notificationRepository.deleteById(srno);
+		
+	}
+	
+	@Override
+	public Notification getNotificationById(int srno) {
+	    return notificationRepository.findById(srno).orElse(null);
+	}
+
 }
