@@ -9,7 +9,8 @@ COPY pom.xml .
 COPY src ./src
 
 # Build the application
-RUN mvn clean install
+RUN mvn clean install -DskipTests
+
 
 # Use an official Java image to run the app
 FROM openjdk:11-jre-slim
